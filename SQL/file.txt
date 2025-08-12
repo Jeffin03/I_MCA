@@ -1,0 +1,170 @@
+CREATE DATABASE STUDENT;
+-- Query OK, 1 row affected (0.03 sec)
+
+USE STUDENT;
+-- Database changed
+
+CREATE TABLE Student (Sname INT, Rollno INT, Address CHAR, Phone INT);
+-- Query OK, 0 rows affected (0.25 sec)
+
+DROP DATABASE STUDENT;
+-- Query OK, 1 row affected (0.09 sec)
+
+CREATE DATABASE db1;
+-- Query OK, 1 row affected (0.00 sec)
+
+USE db1;
+-- Database changed
+
+CREATE TABLE student(sname char(32), rollno int(12), Address varchar(12), phno int(25));
+-- Query OK, 0 rows affected (0.06 sec)
+
+INSERT INTO student (sname, rollno, address, phno) VALUES('Aadu','001','Blore','23412435');
+-- Query OK, 1 row affected (0.02 sec)
+
+INSERT INTO student (sname, rollno, address, phno) VALUES('Beedu','002','Blore','82347912');
+-- Query OK, 1 row affected (0.03 sec)
+
+INSERT INTO student (sname, rollno, address, phno) VALUES('Cedu','003','Blore','238748922');
+-- Query OK, 1 row affected (0.04 sec)
+
+INSERT INTO student (sname, rollno, address, phno) VALUES('Modu','004','Blore','84546848');
+-- Query OK, 1 row affected (0.02 sec)
+
+INSERT INTO student (sname, rollno, address, phno) VALUES('Radu','005','Blore','785345461');
+-- Query OK, 1 row affected (0.04 sec)
+
+SELECT * FROM student;
++-------+--------+---------+-----------+
+| sname | rollno | Address | phno      |
++-------+--------+---------+-----------+
+| Aadu  |      1 | Blore   |  23412435 |
+| Beedu |      2 | Blore   |  82347912 |
+| Cedu  |      3 | Blore   | 238748922 |
+| Modu  |      4 | Blore   |  84546848 |
+| Radu  |      5 | Blore   | 785345461 |
++-------+--------+---------+-----------+
+-- 5 rows in set (0.00 sec)
+
+SELECT sname, rollno FROM student;
++-------+--------+
+| sname | rollno |
++-------+--------+
+| Aadu  |      1 |
+| Beedu |      2 |
+| Cedu  |      3 |
+| Modu  |      4 |
+| Radu  |      5 |
++-------+--------+
+-- 5 rows in set (0.00 sec)
+
+SELECT sname FROM student;
++-------+
+| sname |
++-------+
+| Aadu  |
+| Beedu |
+| Cedu  |
+| Modu  |
+| Radu  |
++-------+
+-- 5 rows in set (0.00 sec)
+
+SELECT sname, rollno FROM student WHERE rollno='5';
++-------+--------+
+| sname | rollno |
++-------+--------+
+| Radu  |      5 |
++-------+--------+
+-- 1 row in set (0.04 sec)
+
+CREATE TABLE EMPLOYEES(
+    Employee_ID varchar(12), 
+    First_Name char(32), 
+    Last_Name char(32), 
+    Email char(32), 
+    Phone_Number char(32), 
+    Hire_Date varchar(32), 
+    Job_ID varchar(12), 
+    Salary int(12), 
+    Manager_Id varchar(12), 
+    Department_Id varchar(12)
+);
+-- Query OK, 0 rows affected (0.07 sec)
+
+INSERT INTO EMPLOYEES(Employee_ID, First_Name, Last_Name, Email, Phone_Number, Hire_Date, Job_ID, Salary, Manager_Id, Department_Id)
+VALUES ('001', 'Aaron', 'John', 'aaron23@gmail.com','546513543','12-07-2021','jb01','120000','100', 'dprt01');
+-- Query OK, 1 row affected (0.04 sec)
+
+INSERT INTO EMPLOYEES VALUES ('002', 'Ben', 'Austin', 'Ben23@gmail.com','546513543','12-07-2021','jb01','1450','100', 'dprt01');
+-- Query OK, 1 row affected (0.03 sec)
+
+INSERT INTO EMPLOYEES VALUES ('003', 'Cedric', 'Austin', 'Cedric23@gmail.com','546513543','12-07-2021','jb01','4800','100', 'dprt01');
+-- Query OK, 1 row affected (0.02 sec)
+
+INSERT INTO EMPLOYEES VALUES ('004', 'Cedric', 'Philip', 'Gregor23@gmail.com','546513543','12-07-2021','jb01','4790','101', 'dprt01');
+-- Query OK, 1 row affected (0.03 sec)
+
+INSERT INTO EMPLOYEES VALUES ('004', 'Issac', 'Philip', 'Gregor23@gmail.com','546513543','12-JAN-2021','jb01','4790','101', 'dprt01');
+-- Query OK, 1 row affected (0.03 sec)
+
+INSERT INTO EMPLOYEES VALUES ('006', 'Zebra', 'Austin', 'Zebra23@gmail.com','546513543','12-JAN-2021','jb01','5000','100', 'dprt01');
+-- Query OK, 1 row affected (0.04 sec)
+
+SELECT Employee_ID, First_Name, Last_Name, Salary FROM EMPLOYEES;
++-------------+------------+-----------+--------+
+| Employee_ID | First_Name | Last_Name | Salary |
++-------------+------------+-----------+--------+
+| 001         | Aaron      | John      | 120000 |
+| 002         | Ben        | Austin    |   1450 |
+| 003         | Cedric     | Austin    |   4800 |
+| 004         | Cedric     | Philip    |   4790 |
+| 004         | Issac      | Philip    |   4790 |
+| 006         | Zebra      | Austin    |   5000 |
++-------------+------------+-----------+--------+
+-- 6 rows in set (0.00 sec)
+
+SELECT * FROM EMPLOYEES;
++-------------+------------+-----------+--------------------+--------------+-------------+--------+--------+------------+---------------+
+| Employee_ID | First_Name | Last_Name | Email              | Phone_Number | Hire_Date   | Job_ID | Salary | Manager_Id | Department_Id |
++-------------+------------+-----------+--------------------+--------------+-------------+--------+--------+------------+---------------+
+| 001         | Aaron      | John      | aaron23@gmail.com  | 546513543    | 12-07-2021  | jb01   | 120000 | 100        | dprt01        |
+| 002         | Ben        | Austin    | Ben23@gmail.com    | 546513543    | 12-07-2021  | jb01   |   1450 | 100        | dprt01        |
+| 003         | Cedric     | Austin    | Cedric23@gmail.com | 546513543    | 12-07-2021  | jb01   |   4800 | 100        | dprt01        |
+| 004         | Cedric     | Philip    | Gregor23@gmail.com | 546513543    | 12-07-2021  | jb01   |   4790 | 101        | dprt01        |
+| 004         | Issac      | Philip    | Gregor23@gmail.com | 546513543    | 12-JAN-2021 | jb01   |   4790 | 101        | dprt01        |
+| 006         | Zebra      | Austin    | Zebra23@gmail.com  | 546513543    | 12-JAN-2021 | jb01   |   5000 | 100        | dprt01        |
++-------------+------------+-----------+--------------------+--------------+-------------+--------+--------+------------+---------------+
+-- 6 rows in set (0.00 sec)
+
+SELECT * FROM EMPLOYEES WHERE Manager_Id = '100';
++-------------+------------+-----------+--------------------+--------------+-------------+--------+--------+------------+---------------+
+| Employee_ID | First_Name | Last_Name | Email              | Phone_Number | Hire_Date   | Job_ID | Salary | Manager_Id | Department_Id |
++-------------+------------+-----------+--------------------+--------------+-------------+--------+--------+------------+---------------+
+| 001         | Aaron      | John      | aaron23@gmail.com  | 546513543    | 12-07-2021  | jb01   | 120000 | 100        | dprt01        |
+| 002         | Ben        | Austin    | Ben23@gmail.com    | 546513543    | 12-07-2021  | jb01   |   1450 | 100        | dprt01        |
+| 003         | Cedric     | Austin    | Cedric23@gmail.com | 546513543    | 12-07-2021  | jb01   |   4800 | 100        | dprt01        |
+| 006         | Zebra      | Austin    | Zebra23@gmail.com  | 546513543    | 12-JAN-2021 | jb01   |   5000 | 100        | dprt01        |
++-------------+------------+-----------+--------------------+--------------+-------------+--------+--------+------------+---------------+
+-- 4 rows in set (0.02 sec)
+
+SELECT * FROM EMPLOYEES WHERE Salary >= '4800';
++-------------+------------+-----------+--------------------+--------------+-------------+--------+--------+------------+---------------+
+| Employee_ID | First_Name | Last_Name | Email              | Phone_Number | Hire_Date   | Job_ID | Salary | Manager_Id | Department_Id |
++-------------+------------+-----------+--------------------+--------------+-------------+--------+--------+------------+---------------+
+| 001         | Aaron      | John      | aaron23@gmail.com  | 546513543    | 12-07-2021  | jb01   | 120000 | 100        | dprt01        |
+| 003         | Cedric     | Austin    | Cedric23@gmail.com | 546513543    | 12-07-2021  | jb01   |   4800 | 100        | dprt01        |
+| 006         | Zebra      | Austin    | Zebra23@gmail.com  | 546513543    | 12-JAN-2021 | jb01   |   5000 | 100        | dprt01        |
++-------------+------------+-----------+--------------------+--------------+-------------+--------+--------+------------+---------------+
+-- 3 rows in set (0.00 sec)
+
+SELECT * FROM EMPLOYEES WHERE Last_Name = 'AUSTIN';
++-------------+------------+-----------+--------------------+--------------+-------------+--------+--------+------------+---------------+
+| Employee_ID | First_Name | Last_Name | Email              | Phone_Number | Hire_Date   | Job_ID | Salary | Manager_Id | Department_Id |
++-------------+------------+-----------+--------------------+--------------+-------------+--------+--------+------------+---------------+
+| 002         | Ben        | Austin    | Ben23@gmail.com    | 546513543    | 12-07-2021  | jb01   |   1450 | 100        | dprt01        |
+| 003         | Cedric     | Austin    | Cedric23@gmail.com | 546513543    | 12-07-2021  | jb01   |   4800 | 100        | dprt01        |
+| 006         | Zebra      | Austin    | Zebra23@gmail.com  | 546513543    | 12-JAN-2021 | jb01   |   5000 | 100        | dprt01        |
++-------------+------------+-----------+--------------------+--------------+-------------+--------+--------+------------+---------------+
+-- 3 rows in set (0.00 sec)
+ 
