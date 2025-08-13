@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <stdlib.h>
 
 void linear();
@@ -9,7 +8,7 @@ int main()
 {
     int choice;
     do {
-        printf("In 1.Search the element using linear search");
+        printf("\nIn 1.Search the element using linear search");
         printf("\nIn 2.Search the element using Binary search");
         printf("\nIn 3.Exit");
         printf("\nEnter your choice: ");
@@ -33,20 +32,25 @@ return 0;
 
 void linear()
 {
-    int n, c , array[100],search;
+    int n, c, array[100], search;
     printf("\nEnter the number of elements in an array: ");
     scanf("%d", &n);
-    printf("\nEnter the array elements:");
-    for(c = 0; c < n;c++) {
+    printf("\nEnter the array elements: ");
+    for(c = 0; c < n; c++) {
+        scanf("%d", &array[c]);
+    }
+    printf("\nEnter the element to be searched: ");
+    scanf("%d", &search);
+
+    for(c = 0; c < n; c++) {
         if(array[c] == search) {
             printf("\nElement found at position %d", c + 1);
             break;
         }
-}
-if (c == n)
-{
-    printf("\n%d is not present in the array", search);
-}
+    }
+    if (c == n) {
+        printf("\n%d is not present in the array", search);
+    }
 }
 
 void binary()
