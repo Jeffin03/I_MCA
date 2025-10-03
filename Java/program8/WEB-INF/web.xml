@@ -1,0 +1,10 @@
+<web-app>
+  <servlet>
+    <servlet-name>HttpStatusServer</servlet-name>
+    <servlet-class>HttpStatusServer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HttpStatusServer</servlet-name>
+    <url-pattern>/HttpStatusServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
