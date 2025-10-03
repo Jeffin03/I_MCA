@@ -1,5 +1,6 @@
 # Ignore all .out files (compiled executables)
 *.out
+*.class
 
 # Common C/C++ build artifacts
 *.o
