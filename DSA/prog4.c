@@ -2,7 +2,6 @@
 
 #include<stdio.h>
 #include<stdlib.h>
-// #include<conio.h>
 struct node
 {
 	int data;
@@ -63,12 +62,6 @@ void main()
 				printf("Please enter valid choice...");
 		}
 		
-		// if(choice != 9)
-        // {
-        //     printf("\nPress any key to continue...");
-        //     getch();  // For Turbo C
-        //     clrscr(); // Clear screen for next iteration
-        // }
     }
 }
 void beginsert()
