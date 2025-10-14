@@ -19,16 +19,18 @@ void display();
 void search();
 void main()
 {
-	int choice=0;
-	//clrscr();
-	while(choice!=9)
-	{
-		printf("\nLINKED LIST\n");
-		printf("\nChoose one option from the following list...\n");
-		printf("\n1.Insert in beginning\n2.Insert at last\n3.Insert at any random location\n4.Delete from beginning\n5.Delete from last\n6.Delete node after specified location\n7.Search for an element\n8.Show\n9.Exit\n");
-		printf("\nEnter your choice?\n");
-		scanf("\n%d",&choice);
-		switch(choice)
+    int choice=0;
+    // clrscr();  
+    while(choice!=9)
+    {
+        printf("\nLINKED LIST\n");
+        printf("\nChoose one option from the following list...\n");
+        printf("\n1.Insert in beginning\n2.Insert at last\n3.Insert at any random location\n4.Delete from beginning\n5.Delete from last\n6.Delete node after specified location\n7.Search for an element\n8.Show\n9.Exit\n");
+        printf("\nEnter your choice?\n");
+        fflush(stdout);
+        scanf("\n%d",&choice);
+        
+        switch(choice)
 		{
 			case 1: 
 				beginsert();
@@ -60,7 +62,14 @@ void main()
 			default:
 				printf("Please enter valid choice...");
 		}
-	}
+		
+		// if(choice != 9)
+        // {
+        //     printf("\nPress any key to continue...");
+        //     getch();  // For Turbo C
+        //     clrscr(); // Clear screen for next iteration
+        // }
+    }
 }
 void beginsert()
 {
