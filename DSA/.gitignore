@@ -1,0 +1,25 @@
+# Ignore all .out files (compiled executables)
+*.out
+
+# Common C/C++ build artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Core dumps
+core
+core.*
+
+# Temporary files
+*~
+.DS_Store
+Thumbs.db
