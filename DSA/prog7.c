@@ -28,11 +28,12 @@ void enqueue(int value) {
 }
 // Dequeue operation
 int dequeue() {
+ int value = queue[front];
  if (isEmpty()) {
  printf("Queue is empty. Cannot dequeue.\n");
  return -1;
  }
- int value = queue[front];
+
  if (front == rear) {
  // Queue has only one element
  front = rear = -1;
@@ -51,12 +52,13 @@ int peek() {
 }
 // Display queue
 void display() {
+ int i = front;
  if (isEmpty()) {
  printf("Queue is empty.\n");
  return;
  }
  printf("Queue elements: ");
- int i = front;
+
  while (1) {
  printf("%d ", queue[i]);
  if (i == rear)
