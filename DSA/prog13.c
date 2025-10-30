@@ -30,7 +30,7 @@ int main()
     if (flag == 0)
         printf("There is no solution\n");
 
-    getch();
+    // getch();
     return 0;
 }
 

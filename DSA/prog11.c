@@ -2,57 +2,60 @@
 // Write a C Program to find shortest paths to other vertices using Dijkstra's
 // algorithm from a given vertex in a weighted connected graph.
 #include <stdio.h>
+#include <stdlib.h>
 #include <limits.h>
-#define V 10 // Maximum number of vertices
-int minDistance(int dist[], int sptSet[], int n) {
- int min = INT_MAX, min_index;
- for (int v = 0; v < n; v++)
- if (sptSet[v] == 0 && dist[v] <= min)
- min = dist[v], min_index = v;
- return min_index;
-}
-void printSolution(int dist[], int n, int src) {
- printf("\nVertex \t\t Distance from Source %d\n", src);
- for (int i = 0; i < n; i++)
- printf("%d \t\t %d\n", i, dist[i]);
-}
-void dijkstra(int graph[V][V], int src, int n) {
- int dist[V]; // Output array: dist[i] holds shortest distance from src to i
- int sptSet[V]; // sptSet[i] is 1 if vertex i is included in shortest path tree
- // Initialize all distances as INFINITE and sptSet[] as false
- for (int i = 0; i < n; i++) {
- dist[i] = INT_MAX;
- sptSet[i] = 0;
- }
- // Distance of source vertex from itself is always 0
- dist[src] = 0;
- // Find shortest path for all vertices
- for (int count = 0; count < n - 1; count++) {
- int u = minDistance(dist, sptSet, n);
- sptSet[u] = 1;
- // Update dist[v] only if not in sptSet, there is an edge from u to v,
- // and total weight of path from src to v through u is smaller
- for (int v = 0; v < n; v++)
- if (!sptSet[v] && graph[u][v] && dist[u] != INT_MAX
- && dist[u] + graph[u][v] < dist[v])
- dist[v] = dist[u] + graph[u][v];
- }
- // Print the constructed distance array
- printSolution(dist, n, src);
-}
+
 int main() {
- int n, graph[V][V];
- int src;
- printf("Enter number of vertices: ");
- scanf("%d", &n);
- printf("Enter the adjacency matrix (0 if no edge):\n");
- for (int i = 0; i < n; i++)
- for (int j = 0; j < n; j++)
- scanf("%d", &graph[i][j]);
- printf("Enter the source vertex: ");
- scanf("%d", &src);
- dijkstra(graph, src, n);
- return 0;
+    int n, i, j, count, u, v, min, exitDigit, src;
+    int **graph, *dist, *visited;
+
+    printf("Enter number of vertices: ");
+    scanf("%d",&n);
+
+    // Dynamic allocation
+    graph = (int**)malloc(n*sizeof(int*));
+    dist = (int*)malloc(n*sizeof(int));
+    visited = (int*)malloc(n*sizeof(int));
+    for(i=0;i<n;i++){
+        graph[i]=(int*)malloc(n*sizeof(int));
+        dist[i]=INT_MAX;
+        visited[i]=0;
+    }
+
+    printf("Enter adjacency matrix (0 if no edge):\n");
+    for(i=0;i<n;i++)
+        for(j=0;j<n;j++){
+            scanf("%d",&graph[i][j]);
+            if(graph[i][j]==0) graph[i][j]=INT_MAX;
+        }
+
+    printf("Enter source vertex (0 to n-1): ");
+    scanf("%d",&src);
+    dist[src]=0;
+
+    for(count=0;count<n-1;count++){
+        // Find min dist vertex
+        min=INT_MAX;
+        for(i=0;i<n;i++)
+            if(!visited[i] && dist[i]<=min){
+                min=dist[i];
+                u=i;
+            }
+        visited[u]=1;
+
+        for(v=0;v<n;v++)
+            if(!visited[v] && graph[u][v]!=INT_MAX && dist[u]!=INT_MAX && dist[u]+graph[u][v]<dist[v])
+                dist[v]=dist[u]+graph[u][v];
+    }
+
+    printf("Vertex\tDistance from source %d\n", src);
+    for(i=0;i<n;i++)
+        printf("%d\t%d\n", i, dist[i]);
+
+    printf("Press any digit to exit: ");
+    scanf("%d",&exitDigit);
+
+    return 0;
 }
 // Input:
 // Enter number of vertices: 5
