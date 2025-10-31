@@ -4,10 +4,12 @@
 #include <stdlib.h>
 // Define a node
 struct Node {
-struct Node *top = NULL; // Top of the stack
  int data;
  struct Node *next;
 };
+
+struct Node *top = NULL; // Top of the stack
+
 
 // Function to push an element into the stack
 void push(int value) {
@@ -23,8 +25,8 @@ void push(int value) {
 }
 // Function to pop an element from the stack
 void pop() {
+ struct Node *temp = top;
  if (top == NULL) {
-   struct Node *temp = top;
  printf("Stack Underflow! No elements to pop.\n");
  return;
  }

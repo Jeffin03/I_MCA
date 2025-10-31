@@ -26,9 +26,9 @@ int knapsack(int W, int wt[], int val[], int n)
 int main()
 {
  int n, W ,i, result;
+ int val[20], wt[20];
  printf("Enter number of items: ");
  scanf("%d", &n);
- int val[20], wt[20];
  printf("Enter values of the items:\n");
  for ( i = 0; i < n; i++) {
  printf("Value of item %d: ", i + 1);
