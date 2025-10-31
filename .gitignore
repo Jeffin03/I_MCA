@@ -2,6 +2,10 @@
 *.out
 *.class
 
+# Log directories
+logs/
+log/
+
 # Common C/C++ build artifacts
 *.o
 *.obj
