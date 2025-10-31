@@ -42,11 +42,11 @@ void insertAtEnd(int data) {
 }
 // Function to delete from the beginning
 void deleteFromBeginning() {
+ struct Node *temp = last->next;
  if (last == NULL) {
  printf("List is empty. Cannot delete.\n");
  return;
  }
- struct Node *temp = last->next;
  if (last->next == last) {
  last = NULL;
  } else {

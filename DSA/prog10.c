@@ -8,7 +8,7 @@ int max(int a, int b)
 int knapsack(int W, int wt[], int val[], int n)
 {
  int i, w;
- int K[n + 1][W + 1];
+ int K[50][20];
  // Build table K[][] in bottom-up manner
  for (i = 0; i <= n; i++) {
  for (w = 0; w <= W; w++) {
@@ -25,23 +25,24 @@ int knapsack(int W, int wt[], int val[], int n)
 }
 int main()
 {
- int n, W;
+ int n, W ,i, result;
  printf("Enter number of items: ");
  scanf("%d", &n);
- int val[n], wt[n];
+ int val[20], wt[20];
  printf("Enter values of the items:\n");
- for (int i = 0; i < n; i++) {
+ for ( i = 0; i < n; i++) {
  printf("Value of item %d: ", i + 1);
  scanf("%d", &val[i]);
  }
  printf("Enter weights of the items:\n");
- for (int i = 0; i < n; i++) {
+ for ( i = 0; i < n; i++) {
  printf("Weight of item %d: ", i + 1);
  scanf("%d", &wt[i]);
  }
  printf("Enter capacity of the knapsack: ");
  scanf("%d", &W);
- int result = knapsack(W, wt, val, n);
+  result = knapsack(W, wt, val, n);
  printf("\nMaximum value that can be put in knapsack = %d\n", result);
+ // getch();
  return 0;
 }
