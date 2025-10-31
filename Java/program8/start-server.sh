@@ -20,6 +20,9 @@ EXISTING_CONTAINER=$(docker ps -q --filter "publish=8080")
 if [ ! -z "$EXISTING_CONTAINER" ]; then
     echo "🛑 Stopping existing container: $EXISTING_CONTAINER"
     docker stop $EXISTING_CONTAINER > /dev/null
+else
+    echo "Building my-tomcat-server image..."
+    docker build -t my-tomcat-server .
 fi
 
 # Ask user for run mode
