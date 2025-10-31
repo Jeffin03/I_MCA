@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  tomcat:
+    build: .
+    container_name: jsp-tomcat10
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./webapp:/usr/local/tomcat/webapps/ROOT
+      - ./logs:/usr/local/tomcat/logs
+    environment:
+      - CATALINA_OPTS=-Xmx512m
+    restart: unless-stopped
+
+volumes:
+  logs:
