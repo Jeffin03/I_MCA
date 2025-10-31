@@ -57,11 +57,11 @@ void deleteFromBeginning() {
 }
 // Function to delete from the end
 void deleteFromEnd() {
+ struct Node *temp = last->next;
  if (last == NULL) {
  printf("List is empty. Cannot delete.\n");
  return;
  }
- struct Node *temp = last->next;
  if (last->next == last) {
  printf("Deleted element: %d\n", last->data);
  free(last);
@@ -77,11 +77,11 @@ void deleteFromEnd() {
 }
 // Function to display the list
 void display() {
+ struct Node *temp = last->next;
  if (last == NULL) {
  printf("List is empty.\n");
  return;
  }
- struct Node *temp = last->next;
  printf("Circular Linked List: ");
  do {
  printf("%d ", temp->data);
