@@ -22,7 +22,7 @@ public class MarksArray
 
 		System.out.println("Enter 20 marks(each between 0 and 100):");
 		
-		for(int i = 0; i < 20; i++)
+		for(int i = 0; i < 10; i++)
 		{
 			try
 			{
@@ -51,7 +51,7 @@ public class MarksArray
 
 		// Print stored marks
 		System.out.println("\n Marks entered:");
-		for(int i = 0; i < 20; i++)
+		for(int i = 0; i < 10; i++)
 		{
 			System.out.println(marks[i] + " ");
 		}
