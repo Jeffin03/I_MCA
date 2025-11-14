@@ -43,6 +43,6 @@ int main()
  scanf("%d", &W);
   result = knapsack(W, wt, val, n);
  printf("\nMaximum value that can be put in knapsack = %d\n", result);
- // getch();
- return 0;
+ // getch(); // Uncomment this for Turbo C
+ return 0; 
 }

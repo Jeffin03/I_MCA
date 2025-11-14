@@ -54,7 +54,7 @@ int main() {
 
     printf("Press any digit to exit: ");
     scanf("%d",&exitDigit);
-
+    // getch(); //uncomment this For Turbo C
     return 0;
 }
 // Input:

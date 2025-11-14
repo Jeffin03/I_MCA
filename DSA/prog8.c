@@ -33,6 +33,7 @@ int main() {
  }
  printf("\n");
  }
+ getch(); //uncomment if you're executing on Turbo C
  return 0;
 }
 // Input:

@@ -30,7 +30,7 @@ int main()
     if (flag == 0)
         printf("There is no solution\n");
 
-    // getch();
+    // getch(); //uncomment this for Turbo C
     return 0;
 }
 

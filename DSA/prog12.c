@@ -81,7 +81,7 @@ void solveNQ() {
 int main() {
     printf("N-Queens Problem Solution (for N = %d):\n\n", N);
     solveNQ();
-    // getch();
+    // getch(); // Uncomment this for Turbo C
     return 0;
 }
 

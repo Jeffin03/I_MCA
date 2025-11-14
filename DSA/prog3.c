@@ -84,4 +84,5 @@ void infixtopostfix(char str[])
 		printf("%c",pop());
 	}
 	printf("\n");
+	// getch(); // uncomment if you're executing on Turbo C
 }

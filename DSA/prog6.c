@@ -81,5 +81,6 @@ int main() {
  printf("Invalid choice! Try again.\n");
  }
  }
+ getch(); //uncomment this for Turbo C
  return 0;
 }

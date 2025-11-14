@@ -44,6 +44,7 @@ int main() {
  cost[a][b] = cost[b][a] = INF; // Mark edge as used
  }
  printf("\nMinimum cost of the spanning tree = %d\n", total_cost);
+//  getch(); // uncomment this for Turbo C
  return 0;
 }
 // Input:
