@@ -1,0 +1,16 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: dbms_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dbms_lab
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./src:/workspace
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
