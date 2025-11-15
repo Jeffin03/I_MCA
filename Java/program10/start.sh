@@ -1,5 +1,4 @@
 #!/bin/bash
-# filepath: start.sh
 
 echo "Starting JSP Tomcat Application..."
 echo "=================================="
@@ -32,14 +31,14 @@ sleep 5
 
 # Check if container is running
 if [ "$(docker ps -q -f name=jsp-tomcat10)" ]; then
-    echo "✅ Container started successfully!"
-    echo "🌐 Access your application at: http://localhost:8080"
-    echo "📋 Access arithmetic calculator at: http://localhost:8080/arithmetic.jsp"
+    echo "Container started successfully!"
+    echo "Access your application at: http://localhost:8080"
+    echo "Access arithmetic calculator at: http://localhost:8080/arithmetic.jsp"
     echo ""
-    echo "📊 To view logs: docker logs jsp-tomcat10"
-    echo "🛑 To stop: ./stop.sh"
+    echo "To view logs: docker logs jsp-tomcat10"
+    echo "To stop: ./stop.sh"
 else
-    echo "❌ Failed to start container. Check logs:"
+    echo "Failed to start container. Check logs:"
     docker logs jsp-tomcat10
     exit 1
 fi

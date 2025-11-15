@@ -1,5 +1,4 @@
 #!/bin/bash
-# filepath: start.sh
 
 echo "Starting JSP Tomcat Application..."
 echo "=================================="
@@ -20,7 +19,7 @@ fi
 # Check if container exists but is stopped
 if [ "$(docker ps -aq -f status=exited -f name=jsp-tomcat11)" ]; then
     echo "Starting existing container..."
-    docker start jsp-tomcat10
+    docker start jsp-tomcat11
 else
     echo "Building and starting new container..."
     docker-compose up -d --build
@@ -32,14 +31,14 @@ sleep 5
 
 # Check if container is running
 if [ "$(docker ps -q -f name=jsp-tomcat11)" ]; then
-    echo "✅ Container started successfully!"
-    echo "🌐 Access your application at: http://localhost:8080"
-    echo "📋 Access arithmetic calculator at: http://localhost:8080/expressionlanguage.jsp"
+    echo "Container started successfully!"
+    echo "Access your application at: http://localhost:8080"
+    echo "Access arithmetic calculator at: http://localhost:8080/expressionlanguage.jsp"
     echo ""
-    echo "📊 To view logs: docker logs jsp-tomcat10"
-    echo "🛑 To stop: ./stop.sh"
+    echo "To view logs: docker logs jsp-tomcat11"
+    echo "To stop: ./stop.sh"
 else
-    echo "❌ Failed to start container. Check logs:"
-    docker logs jsp-tomcat10
+    echo "Failed to start container. Check logs:"
+    docker logs jsp-tomcat11
     exit 1
 fi
