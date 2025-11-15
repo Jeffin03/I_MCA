@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exception Demo</title>
+</head>
+<body>
+    <h2>Trigger Different Exceptions with Input</h2>
+    <form method="post" action="ExceptionDemoServlet">
+        <label for="type">Exception Type:</label>
+        <select name="type" id="type" required>
+            <option value="">-- Select Exception Type --</option>
+            <option value="arithmetic">ArithmeticException</option>
+            <option value="numberformat">NumberFormatException</option>
+            <option value="nullpointer">NullPointerException</option>
+            <option value="arrayindex">ArrayIndexOutOfBoundsException</option>
+            <option value="classnotfound">ClassNotFoundException</option>
+        </select>
+        <br><br>
+
+        <label for="inputValue">Input Value:</label>
+        <input type="text" name="inputValue" id="inputValue" required />
+        <br><br>
+        <input type="submit" value="Trigger Exception">
+    </form>
+</body>
+</html>
