@@ -55,5 +55,7 @@ public class MarksArray
 		{
 			System.out.println(marks[i] + " ");
 		}
+
+		sc.close();
 	}
 }
