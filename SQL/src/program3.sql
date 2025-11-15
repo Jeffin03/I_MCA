@@ -141,55 +141,14 @@ SELECT * FROM EMPLOYEE WHERE EMP_SALARY != 40000;
 -- ===========================================================================
 -- d) BETWEEN OPERATOR
 -- ===========================================================================
-SELECT '=== BETWEEN OPERATOR ===' AS 'SECTION';
-
--- Employees with IDs between A101 and A104
-SELECT * FROM EMPLOYEE 
-WHERE EMP_ID BETWEEN 'A101' AND 'A104';
-
--- Employees with salary between 35000 and 45000
-SELECT * FROM EMPLOYEE 
-WHERE EMP_SALARY BETWEEN 35000 AND 45000;
+SELECT * FROM EMPLOYEE WHERE EMP_ID BETWEEN 'A101' AND 'A104';
 
 -- ===========================================================================
 -- e) UNION OPERATOR
 -- ===========================================================================
-SELECT '=== UNION OPERATOR ===' AS 'SECTION';
-
--- Union of employee and contractor names and departments
-SELECT EMP_NAME, EMP_DPT, 'EMPLOYEE' AS TYPE FROM EMPLOYEE
-UNION
-SELECT EMP_NAME, EMP_DPT, 'CONTRACTOR' AS TYPE FROM CONTRACTOR
-ORDER BY EMP_NAME;
-
--- Union of all cities from both tables
-SELECT DISTINCT EMP_CITY FROM EMPLOYEE
-UNION
-SELECT DISTINCT EMP_CITY FROM CONTRACTOR
-ORDER BY EMP_CITY;
-
--- ===========================================================================
--- ADDITIONAL QUERIES FOR BETTER UNDERSTANDING
--- ===========================================================================
-SELECT '=== ADDITIONAL QUERIES ===' AS 'SECTION';
-
--- Count employees by department
-SELECT EMP_DPT, COUNT(*) AS EMPLOYEE_COUNT 
-FROM EMPLOYEE 
-GROUP BY EMP_DPT;
-
--- Average salary by country
-SELECT EMP_CNTRY, AVG(EMP_SALARY) AS AVG_SALARY 
-FROM EMPLOYEE 
-GROUP BY EMP_CNTRY;
-
--- Highest paid employee
-SELECT * FROM EMPLOYEE 
-WHERE EMP_SALARY = (SELECT MAX(EMP_SALARY) FROM EMPLOYEE);
-
--- Optional: Clean up tables (uncomment if needed)
--- DROP TABLE EMPLOYEE;
--- DROP TABLE CONTRACTOR;
+SELECT EMP_NAME, EMP_DPT FROM EMPLOYEE 
+UNION 
+SELECT EMP_NAME, EMP_DPT FROM CONTRACTOR;
 
 -- ===========================================================================
 -- End of Program 3
