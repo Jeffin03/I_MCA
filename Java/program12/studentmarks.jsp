@@ -10,8 +10,8 @@
         Connection con = null;
         String message = "";
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb", "root", "root");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://db:3306/testdb", "root", "root");
             String action = request.getParameter("action");
             if ("add".equals(action)) {
                 PreparedStatement ps = con.prepareStatement("INSERT INTO students VALUES (?, ?, ?)"); 
