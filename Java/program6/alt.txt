@@ -1,0 +1,97 @@
+// this is a less redundant way to do the program.
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class StudentRegistration extends JFrame implements ActionListener {
+    private JTextField nameField, ageField, contactField, fatherNameField, incomeField;
+    private JButton submitButton;
+
+    public StudentRegistration() {
+        setTitle("Student Registration");
+        setSize(400, 350);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(new GridLayout(7, 2, 10, 10));
+
+        nameField = addField("Name:");
+        ageField = addField("Age:");
+        contactField = addField("Contact:");
+        fatherNameField = addField("Father's Name:");
+        incomeField = addField("Income:");
+
+        add(new JLabel(" "));
+        submitButton = new JButton("Submit");
+        submitButton.addActionListener(this);
+        add(submitButton);
+    }
+
+    private JTextField addField(String label) {
+        add(new JLabel(label));
+        JTextField field = new JTextField();
+        add(field);
+        return field;
+    }
+
+    private void showError(String message) {
+        JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String name = nameField.getText().trim();
+        String ageText = ageField.getText().trim();
+        String contact = contactField.getText().trim();
+        String fatherName = fatherNameField.getText().trim();
+        String incomeText = incomeField.getText().trim();
+
+        if (name.isEmpty() || fatherName.isEmpty() || ageText.isEmpty()
+                || contact.isEmpty() || incomeText.isEmpty()) {
+            showError("All fields must be filled!");
+            return;
+        }
+
+        int age;
+        try {
+            age = Integer.parseInt(ageText);
+            if (age <= 0 || age > 120) {
+                showError("Age must be between 1 and 120!");
+                return;
+            }
+        } catch (NumberFormatException ex) {
+            showError("Age must be a valid number!");
+            return;
+        }
+
+        if (!contact.matches("\\d{10}")) {
+            showError("Contact must be a 10-digit number!");
+            return;
+        }
+
+        double income;
+        try {
+            income = Double.parseDouble(incomeText);
+            if (income < 0) {
+                showError("Income cannot be negative!");
+                return;
+            }
+        } catch (NumberFormatException ex) {
+            showError("Income must be a valid number!");
+            return;
+        }
+
+        JOptionPane.showMessageDialog(this,
+                "Registration Successful!\n\n"
+                        + "Name: " + name + "\n"
+                        + "Age: " + age + "\n"
+                        + "Contact: " + contact + "\n"
+                        + "Father's Name: " + fatherName + "\n"
+                        + "Annual Income: " + income,
+                "Success", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new StudentRegistration().setVisible(true));
+    }
+}
