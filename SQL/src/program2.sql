@@ -135,10 +135,10 @@ SELECT INSTR('VARUN MOHAN', 'MOHAN') AS 'POSITION_OF_MOHAN';
 SELECT '=== CONVERSION FUNCTIONS ===' AS 'SECTION';
 
 SELECT 
-    DATE_FORMAT(NOW(), '%d/%m/%Y') AS 'FORMATTED_DATE',
-    CAST(123.45 AS UNSIGNED) AS 'CAST_TO_INT',
-    CONVERT('2024-12-25', DATE) AS 'CONVERT_TO_DATE',
-    FORMAT(1234.567, 2) AS 'FORMATTED_NUMBER';
+       
+       DATE_FORMAT(NOW(), '%d/%m/%Y') AS CONVERTEDDATE,
+       DATE_FORMAT(NOW(), '%D %M %Y') AS 'DATE_IN_WORDS',
+       CAST(123.45 AS UNSIGNED) AS CASTTOINT;
 
 -- ===========================================================================
 -- e) DATE FUNCTIONS
@@ -162,23 +162,6 @@ SELECT MONTHNAME(NOW()) AS 'CURRENT_MONTH_NAME';
 
 -- (vi) Current day
 SELECT DAY(NOW()) AS 'CURRENT_DAY';
-
--- Additional date functions
-SELECT 
-    DAYNAME(NOW()) AS 'DAY_NAME',
-    WEEK(NOW()) AS 'WEEK_NUMBER',
-    QUARTER(NOW()) AS 'QUARTER',
-    DATEDIFF('2024-12-31', NOW()) AS 'DAYS_TO_YEAR_END',
-    DATE_ADD(NOW(), INTERVAL 30 DAY) AS 'DATE_PLUS_30_DAYS';
-
--- ===========================================================================
--- FINAL DATA DISPLAY
--- ===========================================================================
-SELECT '=== FINAL TABLE DATA ===' AS 'SECTION';
-SELECT * FROM MARKLIST;
-
--- Optional: Clean up (uncomment if needed)
--- DROP TABLE MARKLIST;
 
 -- ===========================================================================
 -- End of Program 2
